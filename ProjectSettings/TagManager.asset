@@ -4,13 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Key
   - Cola
-  - Logic
   - KeyItem
   - Trap
   - nonCat
   - SmallMagicCircle
+  - MovingTrap
+  - Key1
+  - Key2
+  - Key
+  - Secret_Code_Item
   layers:
   - Default
   - TransparentFX
@@ -53,4 +56,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 816798593
+    locked: 0
+  - name: Panel
+    uniqueID: 2684900759
     locked: 0

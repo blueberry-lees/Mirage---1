@@ -6,33 +6,33 @@ using UnityEngine;
 
 public class Cola : MonoBehaviour
 {
-
-    public Vector3 rightPlateform;
-    public Vector3 leftPlateform;
+    [Header("Locations")]
     public Transform spawnPoint;
-  
 
-
-    public bool keyCollected; //if key is collected
-
-    public GameObject keyItem;
-
+    [Header("HP")]
     public HPScript health;
 
+    [Header("Movements")]   
     public Animator animator; //player animator component
-
     Rigidbody2D rb;
 
     public float speed; //speed of player movement
 
     public MovementDirection moveDirection;
 
-    public Transform cliffCheckObj;
+    [Header("Void Check")]
+    public Transform voidCheckObj;
     public LayerMask layer;
     public float wallDistance;
 
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = spawnPoint.position;
 
+        StartCoroutine(Movement());
+    }
 
     public enum MovementDirection
     {
@@ -44,68 +44,19 @@ public class Cola : MonoBehaviour
     }
 
 
-    private void Start()
+
+    void OnTriggerEnter2D(Collider2D collision) //if collide, trigger
     {
-        transform.position = Vector3.zero; //spwan point
-        keyCollected = false;
 
-        StartCoroutine(Movement());
-    }
-
-
-    void OnTriggerEnter2D(Collider2D collision) //if collide with trigger
-    {
-        if (collision.CompareTag("SmallMagicCircle")) //if it's small magic circle
+        if (collision.CompareTag("Trap")) //if it's trap
         {
-            transform.position = Vector3.zero; //change position to zero
+            TakeDamage(collision.gameObject);
         }
 
-        if (collision.CompareTag("Key")) //if it's key
-        {
-            KeyCollected(collision.gameObject); //get function keycollected from logic script and execute it
-        }
-
-        if (collision.CompareTag("Trap")) //if it's key
-        {
-            TakeDamage(collision.gameObject); //get function keycollected from logic script and execute it
-        }
-
-        //if (collision.CompareTag("Object")) //if it's key
-        //{
-        //    Collected(collision.gameObject); //get function keycollected from logic script and execute it
-        //    //keyCollected = true;  //key is collected (bollen = true)
-        //}
-
-    }
-
-    public void KeyCollected(GameObject key)
-    {
-        keyCollected = true;  //key is collected (bollen = true)
-        Destroy(key.gameObject);
-        Debug.Log("Key Collected!");
-        keyItem.gameObject.SetActive(true);
-    }
-
-    public void Collected(GameObject obj)
-    {
-        Destroy(obj.gameObject);
-        Debug.Log("Object Collected!");
-        //keyItem.gameObject.SetActive(true);
-    }
-
-    public void TakeDamage(GameObject trap)
-    {
-        health.RemoveHeart();
-        Debug.Log("damaged!");
-
-        animator.SetTrigger("TakeDamage");
     }
 
 
-    private void Awake() //execute once before the application starts.
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+
 
     void Update()// Update is called once per frame
     {
@@ -169,7 +120,8 @@ public class Cola : MonoBehaviour
 
 
                 //TODO
-                //Send a raycast in the move direction  to make sure there is no wall
+                //Send a raycast in the move direction  to make sure
+                //there is no wall
                 //if there is a wall we need to ignore the below code
                 if (!CheckCliff(actualDirection))
                 {
@@ -178,7 +130,8 @@ public class Cola : MonoBehaviour
 
                     startPosition = transform.position; //start position
                     currentPosition = transform.position; //current Position
-                    tilePosition = (Vector2)transform.position + actualDirection; //end position
+                    tilePosition = (Vector2)transform.position + actualDirection; 
+                    //end position
                     t = 0;
                 }
             }
@@ -210,7 +163,8 @@ public class Cola : MonoBehaviour
         bool meetCliff = false;
         //TODO Send Raycast to check for cliff
         RaycastHit2D hit;
-        hit = Physics2D.Raycast(cliffCheckObj.position, direction, wallDistance, layer) ;
+        hit = Physics2D.Raycast(voidCheckObj.position,
+            direction, wallDistance, layer) ;
         if(hit.collider != null)
         {
             meetCliff = true;
@@ -222,21 +176,13 @@ public class Cola : MonoBehaviour
     }
 
 
-    //set 2 spawns
-
-    public void MagicCircleRight()
+    public void TakeDamage(GameObject trap)
     {
-        transform.position = rightPlateform;
+        health.RemoveHeart();
+        Debug.Log("damaged!");
+
+        animator.SetTrigger("TakeDamage");
     }
 
-    public void MagicCircleLeft()
-    {
-        transform.position = leftPlateform;
-    }
-
-    public void SmallMagicCircles()
-    {
-        transform.position = spawnPoint.position;
-    }
 
 }
