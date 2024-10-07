@@ -1,0 +1,13 @@
+This is a back up file I made for my unity project in portable SSD, it is located in the desktop. Here I want to make some changes:
+- Glow on character
+- background drawn out
+- lighting assets drawn out( animation) 
+- moving traps
+- magic circle
+- keys collected using boolean
+- how to jump more than one block ( for level 1)
+- THE ENDING coffin
+- Dialogue?
+- story items ( lets keep it in the coffin) 
+- secret code items
+- 
