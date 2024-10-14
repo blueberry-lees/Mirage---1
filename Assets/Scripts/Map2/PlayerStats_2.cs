@@ -12,9 +12,12 @@ public class PlayerStats_2 : MonoBehaviour
 {
 
 
-    PlatformManager platformManager;
+    public PlatformManager platformManager;
 
-    public GameObject questionObj;
+    public GameObject questionObjLeft;
+    public GameObject questionObjRight;
+    public TMP_InputField playerInputLeft;
+    public TMP_InputField playerInputRight;
 
     [Header("Items")]
     public GameObject codeItemZoom;
@@ -27,6 +30,7 @@ public class PlayerStats_2 : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject dialogue;
     public DialogueTab dialogueTab;
+    PlayerMovement playerMovement;
 
 
 
@@ -46,6 +50,9 @@ public class PlayerStats_2 : MonoBehaviour
     private void Start()
     {
         dialogueTab = DialogueTab.take;
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        
+
 
     }
 
@@ -76,36 +83,37 @@ public class PlayerStats_2 : MonoBehaviour
             sceneTrans.GetComponent<SceneChanger>().SceneChange();
         }
 
+        if (collision.CompareTag("Code1"))
+        {
+            playerMovement.StopMoving();
+            code1zoom.SetActive(true);
+        }
+        if (collision.CompareTag("Code2"))
+        {
+            playerMovement.StopMoving();
+            code2zoom.SetActive(true);
+        }
+
         
 
         //left quesiton
         if (collision.CompareTag("LeftBox"))
         {
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-            questionObj.SetActive(true);
+            playerMovement.StopMoving();
+            questionObjLeft.SetActive(true);
         }
 
         //right quesiton
-        
+
         if (collision.CompareTag("RightBox"))
         {
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-            questionObj.SetActive(true);
+            playerMovement.StopMoving();
+            questionObjRight.SetActive(true);
         }
-
-        if(collision.CompareTag("Code1"))
-        {
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-            code1zoom.SetActive(true);
-        }
-        if (collision.CompareTag("Code2"))
-        {
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-            code2zoom.SetActive(true);
-        }
-
 
     }
+
+   
 
 
 
@@ -138,7 +146,8 @@ public class PlayerStats_2 : MonoBehaviour
     {
         Debug.Log("exit");
         gameObject.GetComponent<PlayerMovement>().enabled = true;
-        questionObj.SetActive(false);
+        questionObjLeft.SetActive(false);
+        questionObjRight.SetActive(false);
         code1zoom.SetActive(false);
         code2zoom.SetActive(false);
 
@@ -207,7 +216,7 @@ public class PlayerStats_2 : MonoBehaviour
             case DialogueTab.take:
                 dialogue.SetActive(true);
                 dialogueText.text = "Take this item?\r\n\r\n                                      Yes[Z]             No[X]";
-                GetComponent<PlayerMovement>().enabled = false;
+                playerMovement.StopMoving();
                 break;
 
             case DialogueTab.takeYes:

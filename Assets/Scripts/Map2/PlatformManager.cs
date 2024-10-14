@@ -16,10 +16,12 @@ public class PlatformManager : MonoBehaviour
 
 
     [Header("Input Puzzle")]
-    public GameObject questionObj;
+    public GameObject questionObjLeft;
+    public GameObject questionObjRight;
     public GameObject rightbox;
     public GameObject leftbox;
-    public TMP_InputField playerInput;
+    public TMP_InputField playerInputLeft;
+    public TMP_InputField playerInputRight;
     public TextMeshProUGUI question;
     string rightAns = "132";
     string leftAns = "321";
@@ -34,19 +36,20 @@ public class PlatformManager : MonoBehaviour
     void Start()
     {
 
-        playerInput.onValueChanged.AddListener(CheckAnswer);
+        playerInputLeft.onValueChanged.AddListener(CheckAnswerLeft);
+        playerInputRight.onValueChanged.AddListener(CheckAnswerRight);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (platform1free)
+        if (platform1free == true)
         {
             newPlatform1.SetActive(true);
             pathblock1.SetActive(false);
         }
-        if (platform2free)
+        if (platform2free == true)
         {
             newPlatform2.SetActive(true);
 
@@ -62,8 +65,11 @@ public class PlatformManager : MonoBehaviour
 
     //}
 
-    public void CheckAnswer(string answer)
+    public void CheckAnswerLeft(string answer)
     {
+
+        // Example: Clear the input or limit it to 3 digits
+
 
         if (answer.Equals(leftAns))
         {
@@ -71,26 +77,28 @@ public class PlatformManager : MonoBehaviour
             platform1free = true;
             Debug.Log("platform 1 free");
             player.GetComponent<PlayerMovement>().enabled = true;
-            questionObj.SetActive(false);
-
+            questionObjLeft.SetActive(false);
+            playerInputLeft.text = "";
         }
 
-        if(answer.Equals(rightAns))
+    }
+    public void CheckAnswerRight(string answer)
+    {
+        if (answer.Equals(rightAns))
         {
             Destroy(rightbox);
             platform2free = true;
             Debug.Log("platform 2 free");
             player.GetComponent<PlayerMovement>().enabled = true;
-            questionObj.SetActive(false);
+            questionObjRight.SetActive(false);
+            playerInputRight.text = "";
         }
-   
     }
 
-    //public void TurnOnQuestion()
-    //{
-    //    questionObj.SetActive(true);
-    //}
 
+
+    //TODO
+    //public IEnumerator waitForPlayerToGo
 
 
 

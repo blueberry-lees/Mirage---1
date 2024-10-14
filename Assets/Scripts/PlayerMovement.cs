@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static PlayerStats_2;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -84,7 +86,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
+    public void StopMoving()
+    {
+        moveDirection = MovementDirection.idle;
+        this.enabled = false; 
+    }
     IEnumerator Movement()
     {
         bool isMoving = false;
