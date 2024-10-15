@@ -13,15 +13,15 @@ public class InputSelect : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Whatever());   
-     }
+        //myInputField.Select(); // Select the input field
+        //myInputField.ActivateInputField(); //Makes sure the keyboard input is active
+    }
 
     IEnumerator Whatever()
     {
         yield return new WaitForSeconds (.5f); //wait for 1 sec
         Debug.Log("wtf");
-        myInputField.Select(); // Select the input field
-        myInputField.ActivateInputField(); //Makes sure the keyboard input is active
+        
     }
 
 

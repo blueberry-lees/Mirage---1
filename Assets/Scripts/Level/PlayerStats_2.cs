@@ -101,6 +101,7 @@ public class PlayerStats_2 : MonoBehaviour
         {
             playerMovement.StopMoving();
             questionObjLeft.SetActive(true);
+            questionObjLeft.GetComponentInChildren<TMP_InputField>().ActivateInputField();
         }
 
         //right quesiton
@@ -109,6 +110,7 @@ public class PlayerStats_2 : MonoBehaviour
         {
             playerMovement.StopMoving();
             questionObjRight.SetActive(true);
+            questionObjRight.GetComponentInChildren<TMP_InputField>().ActivateInputField();
         }
 
     }
