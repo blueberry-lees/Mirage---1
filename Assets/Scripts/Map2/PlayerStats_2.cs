@@ -57,7 +57,7 @@ public class PlayerStats_2 : MonoBehaviour
     }
 
 
-
+   
     /// <summary>
     /// CHEHCK COLLSION WITH: Key1, Key2, codeItem
     /// </summary>
@@ -235,7 +235,7 @@ public class PlayerStats_2 : MonoBehaviour
 
             case DialogueTab.areYes:
                 codeItemZoom.SetActive(false);
-                dialogueText.text = "Fair enough 'know-it-all'.";
+                dialogueText.text = "Fair enough, 'know-it-all'.";
                 GetComponent<PlayerMovement>().enabled = true;
                 getCodeItem = false;
                 codeItem.SetActive(false);

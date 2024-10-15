@@ -23,6 +23,8 @@ public class PathBehaviour : MonoBehaviour
     //to play transition animation
     
     public GameObject sceneTrans;
+    public GameObject sFX3;
+    public GameObject sFX8;
 
 
 
@@ -39,7 +41,9 @@ public class PathBehaviour : MonoBehaviour
         // Check if W is pressed while the path is colliding with player
         if (pathAvailable && Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+
             SelectPath();
+            Instantiate(sFX3);
         }
     }
 
@@ -51,6 +55,7 @@ public class PathBehaviour : MonoBehaviour
         {
             ShowPath();
             pathAvailable = true;
+            Instantiate(sFX8);
         }
     }
 

@@ -5,20 +5,14 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip bgm1, buttonHoverSound, buttonHoverExitSound, 
+    public AudioClip buttonSelectionSound, buttonHoverExitSound, 
         buttonClickSound, keySound, damageSound;
 
 
-    public void BGM1()
-    {
-        audioSource.clip = bgm1;
-        audioSource.Play();
 
-
-    }
-    public void ButtonHoverSound()
+    public void ButtonSelectionSound()
     {
-        audioSource.clip = buttonHoverSound;
+        audioSource.clip = buttonSelectionSound;
         audioSource.Play();
 
     }
