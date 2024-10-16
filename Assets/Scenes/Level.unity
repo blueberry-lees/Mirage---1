@@ -12714,6 +12714,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInputField: {fileID: 1096152080}
+  answer: 
+  method: 
+  answerCorrect: 0
+  platformManager: {fileID: 0}
 --- !u!1 &406121746
 GameObject:
   m_ObjectHideFlags: 0
@@ -16645,6 +16649,7 @@ GameObject:
   - component: {fileID: 1096152082}
   - component: {fileID: 1096152081}
   - component: {fileID: 1096152080}
+  - component: {fileID: 1096152083}
   m_Layer: 5
   m_Name: Input Field
   m_TagString: Untagged
@@ -16808,6 +16813,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096152078}
   m_CullTransparentMesh: 1
+--- !u!114 &1096152083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096152078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb35356629d65294282a61b939965922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInputField: {fileID: 1096152080}
+  answer: 321
+  method: LeftPlatform
+  answerCorrect: 0
+  platformManager: {fileID: 2129611607}
 --- !u!1 &1103490623
 GameObject:
   m_ObjectHideFlags: 0
@@ -20461,7 +20483,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 10, y: -13, z: 0}
@@ -20529,7 +20551,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: -13, z: 0}
@@ -20733,7 +20755,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -11, z: 0}
@@ -20852,7 +20874,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -16, y: -6, z: 0}
@@ -21192,7 +21214,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 7, y: -2, z: 0}
@@ -21973,6 +21995,7 @@ GameObject:
   - component: {fileID: 1406427204}
   - component: {fileID: 1406427206}
   - component: {fileID: 1406427205}
+  - component: {fileID: 1406427207}
   m_Layer: 0
   m_Name: Right box
   m_TagString: RightBox
@@ -22093,6 +22116,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1406427207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406427203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd7d0d707282f74c9e8e543d1599e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPlatform1: {fileID: 0}
+  newPlatform2: {fileID: 0}
+  pathblock1: {fileID: 0}
+  pathblock2: {fileID: 0}
+  platform1free: 0
+  platform2free: 0
+  questionObjLeft: {fileID: 0}
+  questionObjRight: {fileID: 0}
+  rightbox: {fileID: 0}
+  leftbox: {fileID: 0}
+  question: {fileID: 0}
+  player: {fileID: 0}
+  answerDialogueTab: 0
 --- !u!1 &1422381984
 GameObject:
   m_ObjectHideFlags: 0
@@ -22383,6 +22431,7 @@ GameObject:
   - component: {fileID: 1508898961}
   - component: {fileID: 1508898963}
   - component: {fileID: 1508898962}
+  - component: {fileID: 1508898964}
   m_Layer: 0
   m_Name: Left box
   m_TagString: LeftBox
@@ -22503,6 +22552,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1508898964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508898960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd7d0d707282f74c9e8e543d1599e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPlatform1: {fileID: 0}
+  newPlatform2: {fileID: 0}
+  pathblock1: {fileID: 0}
+  pathblock2: {fileID: 0}
+  platform1free: 0
+  platform2free: 0
+  questionObjLeft: {fileID: 0}
+  questionObjRight: {fileID: 0}
+  rightbox: {fileID: 0}
+  leftbox: {fileID: 0}
+  question: {fileID: 0}
+  player: {fileID: 0}
+  answerDialogueTab: 0
 --- !u!1 &1514189061
 GameObject:
   m_ObjectHideFlags: 0
@@ -35056,6 +35130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInputField: {fileID: 1918498162}
+  answer: 
+  method: 
+  answerCorrect: 0
+  platformManager: {fileID: 0}
 --- !u!1 &1739953466
 GameObject:
   m_ObjectHideFlags: 0
@@ -36025,6 +36103,7 @@ GameObject:
   - component: {fileID: 1918498164}
   - component: {fileID: 1918498163}
   - component: {fileID: 1918498162}
+  - component: {fileID: 1918498165}
   m_Layer: 5
   m_Name: Input Field
   m_TagString: Untagged
@@ -36188,6 +36267,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918498160}
   m_CullTransparentMesh: 1
+--- !u!114 &1918498165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918498160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb35356629d65294282a61b939965922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInputField: {fileID: 0}
+  answer: 
+  method: 
+  answerCorrect: 0
+  platformManager: {fileID: 0}
 --- !u!1 &1945391357
 GameObject:
   m_ObjectHideFlags: 0
@@ -36868,8 +36964,6 @@ MonoBehaviour:
   questionObjRight: {fileID: 1726647694}
   rightbox: {fileID: 1406427203}
   leftbox: {fileID: 1508898960}
-  playerInputLeft: {fileID: 1096152080}
-  playerInputRight: {fileID: 1096152080}
   question: {fileID: 1328248619}
   player: {fileID: 7887746144273062123}
   answerDialogueTab: 0

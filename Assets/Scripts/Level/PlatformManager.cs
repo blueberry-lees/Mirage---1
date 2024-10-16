@@ -20,11 +20,11 @@ public class PlatformManager : MonoBehaviour
     public GameObject questionObjRight;
     public GameObject rightbox;
     public GameObject leftbox;
-    public TMP_InputField playerInputLeft;
-    public TMP_InputField playerInputRight;
+    //public TMP_InputField playerInputLeft;
+    //public TMP_InputField playerInputRight;
     public TextMeshProUGUI question;
-    string rightAns = "132";
-    string leftAns = "321";
+    //string rightAns = "132";
+    //string leftAns = "321";
 
     public GameObject player;
 
@@ -33,67 +33,87 @@ public class PlatformManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
 
-        playerInputLeft.onValueChanged.AddListener(CheckAnswerLeft);
-        playerInputRight.onValueChanged.AddListener(CheckAnswerRight);
+    //    playerInputLeft.onValueChanged.AddListener(CheckAnswerLeft);
+    //    playerInputRight.onValueChanged.AddListener(CheckAnswerRight);
+
+    //}
+
+    //Update is called once per frame
+    //void Update()
+    //{
+        
+    //    if (platform1free == true)
+    //    {
+    //        newPlatform1.SetActive(true);
+    //        pathblock1.SetActive(false);
+    //    }
+    //    if (platform2free == true)
+    //    {
+    //        newPlatform2.SetActive(true);
+
+    //        pathblock2.SetActive(false);
+    //    }
+
+    //}
+
+    public void ActivePlatform()
+    {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LeftPlatform()
     {
-        if (platform1free == true)
-        {
-            newPlatform1.SetActive(true);
-            pathblock1.SetActive(false);
-        }
-        if (platform2free == true)
-        {
-            newPlatform2.SetActive(true);
-
-            pathblock2.SetActive(false);
-        }
-
+        newPlatform1.SetActive(true);
+        pathblock1.SetActive(false);
     }
+
+    public void RightPlatform()
+    {
+        newPlatform2.SetActive(true);
+
+        pathblock2.SetActive(false);
+    }
+
     //public void LeftQuestion()
     //{
-       
+
     //    questionObj.SetActive(true);
     //    OpenLeftQuestion(leftAns);
 
     //}
 
-    public void CheckAnswerLeft(string answer)
-    {
+    //public void CheckAnswerLeft(string answer)
+    //{
 
-        // Example: Clear the input or limit it to 3 digits
+    //    // Example: Clear the input or limit it to 3 digits
 
 
-        if (answer.Equals(leftAns))
-        {
-            Destroy(leftbox);
-            platform1free = true;
-            Debug.Log("platform 1 free");
-            player.GetComponent<PlayerMovement>().enabled = true;
-            questionObjLeft.SetActive(false);
-            playerInputLeft.text = "";
-        }
+    //    if (answer.Equals(leftAns))
+    //    {
+    //        Destroy(leftbox);
+    //        platform1free = true;
+    //        Debug.Log("platform 1 free");
+    //        player.GetComponent<PlayerMovement>().enabled = true;
+    //        questionObjLeft.SetActive(false);
+    //        playerInputLeft.text = "";
+    //    }
 
-    }
-    public void CheckAnswerRight(string answer)
-    {
-        if (answer.Equals(rightAns))
-        {
-            Destroy(rightbox);
-            platform2free = true;
-            Debug.Log("platform 2 free");
-            player.GetComponent<PlayerMovement>().enabled = true;
-            questionObjRight.SetActive(false);
-            playerInputRight.text = "";
-        }
-    }
+    //}
+    //public void CheckAnswerRight(string answer)
+    //{
+    //    if (answer.Equals(rightAns))
+    //    {
+    //        Destroy(rightbox);
+    //        platform2free = true;
+    //        Debug.Log("platform 2 free");
+    //        player.GetComponent<PlayerMovement>().enabled = true;
+    //        questionObjRight.SetActive(false);
+    //        playerInputRight.text = "";
+    //    }
+    //}
 
 
 
