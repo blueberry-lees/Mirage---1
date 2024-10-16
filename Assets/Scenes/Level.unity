@@ -12781,7 +12781,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2129611609}
+  m_Father: {fileID: 1555842054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &449436311
 Animator:
@@ -14091,6 +14091,8 @@ Transform:
   m_Children:
   - {fileID: 1519738817301104534}
   - {fileID: 4431295622804703896}
+  - {fileID: 1406427204}
+  - {fileID: 1508898961}
   - {fileID: 2107683747}
   - {fileID: 2129611609}
   - {fileID: 1054941215}
@@ -17087,7 +17089,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 2129611609}
+  m_Father: {fileID: 1555842054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1117661339
 TilemapRenderer:
@@ -20551,7 +20553,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: -13, z: 0}
@@ -20755,7 +20757,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -11, z: 0}
@@ -20874,7 +20876,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -16, y: -6, z: 0}
@@ -21214,7 +21216,7 @@ Tilemap:
       - {fileID: 1137079206, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: -1618557530, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
       - {fileID: 1476034804, guid: ebd7c78211e68cd4c9ec0465edb41b60, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 7, y: -2, z: 0}
@@ -21995,14 +21997,13 @@ GameObject:
   - component: {fileID: 1406427204}
   - component: {fileID: 1406427206}
   - component: {fileID: 1406427205}
-  - component: {fileID: 1406427207}
   m_Layer: 0
   m_Name: Right box
   m_TagString: RightBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1406427204
 Transform:
   m_ObjectHideFlags: 0
@@ -22011,13 +22012,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406427203}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 1.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1739953467}
-  m_Father: {fileID: 2129611609}
+  m_Father: {fileID: 471713304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1406427205
 BoxCollider2D:
@@ -22116,31 +22117,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1406427207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406427203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd7d0d707282f74c9e8e543d1599e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newPlatform1: {fileID: 0}
-  newPlatform2: {fileID: 0}
-  pathblock1: {fileID: 0}
-  pathblock2: {fileID: 0}
-  platform1free: 0
-  platform2free: 0
-  questionObjLeft: {fileID: 0}
-  questionObjRight: {fileID: 0}
-  rightbox: {fileID: 0}
-  leftbox: {fileID: 0}
-  question: {fileID: 0}
-  player: {fileID: 0}
-  answerDialogueTab: 0
 --- !u!1 &1422381984
 GameObject:
   m_ObjectHideFlags: 0
@@ -22431,9 +22407,8 @@ GameObject:
   - component: {fileID: 1508898961}
   - component: {fileID: 1508898963}
   - component: {fileID: 1508898962}
-  - component: {fileID: 1508898964}
   m_Layer: 0
-  m_Name: Left box
+  m_Name: Switch
   m_TagString: LeftBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22447,13 +22422,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508898960}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 1.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1204053167}
-  m_Father: {fileID: 2129611609}
+  m_Father: {fileID: 471713304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1508898962
 BoxCollider2D:
@@ -22552,31 +22527,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1508898964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508898960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbd7d0d707282f74c9e8e543d1599e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newPlatform1: {fileID: 0}
-  newPlatform2: {fileID: 0}
-  pathblock1: {fileID: 0}
-  pathblock2: {fileID: 0}
-  platform1free: 0
-  platform2free: 0
-  questionObjLeft: {fileID: 0}
-  questionObjRight: {fileID: 0}
-  rightbox: {fileID: 0}
-  leftbox: {fileID: 0}
-  question: {fileID: 0}
-  player: {fileID: 0}
-  answerDialogueTab: 0
 --- !u!1 &1514189061
 GameObject:
   m_ObjectHideFlags: 0
@@ -22644,6 +22594,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1117661338}
+  - {fileID: 449436310}
   - {fileID: 42504897}
   - {fileID: 1422381985}
   - {fileID: 101224100}
@@ -36936,10 +36888,6 @@ Transform:
   - {fileID: 1894338488}
   - {fileID: 1170459563}
   - {fileID: 1555842054}
-  - {fileID: 449436310}
-  - {fileID: 1117661338}
-  - {fileID: 1406427204}
-  - {fileID: 1508898961}
   m_Father: {fileID: 471713304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2129611610
