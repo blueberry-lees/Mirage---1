@@ -7,19 +7,15 @@ using UnityEngine.UIElements;
 public class PlatformManager : MonoBehaviour
 {
     [Header("Platforms")]
-    public GameObject newPlatform1;
-    public GameObject newPlatform2;
     public GameObject pathblock1;
     public GameObject pathblock2;
-    public bool platform1free = false;
-    public bool platform2free = false;
 
 
     [Header("Input Puzzle")]
     public GameObject questionObjLeft;
     public GameObject questionObjRight;
-    public GameObject rightbox;
-    public GameObject leftbox;
+    //public GameObject rightbox;
+    //public GameObject leftbox;
     //public TMP_InputField playerInputLeft;
     //public TMP_InputField playerInputRight;
     public TextMeshProUGUI question;
@@ -30,7 +26,10 @@ public class PlatformManager : MonoBehaviour
 
     public AnswerDialogueTab answerDialogueTab;
 
-
+    private void Start()
+    {
+        pathblock1.GetComponent<MovingTrap>().enabled =false;
+    }
 
     // Start is called before the first frame update
     //void Start()
@@ -44,7 +43,7 @@ public class PlatformManager : MonoBehaviour
     //Update is called once per frame
     //void Update()
     //{
-        
+
     //    if (platform1free == true)
     //    {
     //        newPlatform1.SetActive(true);
@@ -59,22 +58,18 @@ public class PlatformManager : MonoBehaviour
 
     //}
 
-    public void ActivePlatform()
-    {
-
-    }
-
     public void LeftPlatform()
     {
-        newPlatform1.SetActive(true);
-        pathblock1.SetActive(false);
+
+        pathblock1.GetComponent<MovingTrap>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
+
     }
 
     public void RightPlatform()
     {
-        newPlatform2.SetActive(true);
-
-        pathblock2.SetActive(false);
+        pathblock2.GetComponent<MovingTrap>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
     }
 
     //public void LeftQuestion()

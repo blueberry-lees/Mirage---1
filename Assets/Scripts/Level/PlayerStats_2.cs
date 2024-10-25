@@ -76,12 +76,12 @@ public class PlayerStats_2 : MonoBehaviour
         {
             getCodeItem = true;
         }
-        if(collision.gameObject == door)
-        {
-            sceneTrans.GetComponent<SceneChanger>().sceneName = "The Coffin";
-            Debug.Log("sceneNamechanged");
-            sceneTrans.GetComponent<SceneChanger>().SceneChange();
-        }
+        //if(collision.gameObject == door)
+        //{
+        //    sceneTrans.GetComponent<SceneChanger>().sceneName = "The Coffin";
+        //    Debug.Log("sceneNamechanged");
+        //    sceneTrans.GetComponent<SceneChanger>().SceneChange();
+        //}
 
         if (collision.CompareTag("Code1"))
         {
@@ -117,7 +117,7 @@ public class PlayerStats_2 : MonoBehaviour
 
    
 
-
+    
 
     private void Update()
     {
@@ -131,6 +131,7 @@ public class PlayerStats_2 : MonoBehaviour
         if(allKeysCollected ==true)
         {
             Debug.Log("GO TO THE DOOR");
+            GetComponent<AudioSource>().Play();
             door.GetComponent<BoxCollider2D>().enabled =true;
             dialogueTab = DialogueTab.goDoor;
             SwitchDialogue();

@@ -8,6 +8,7 @@ public class PlayerStats_Coffin : MonoBehaviour
     public GameObject toMenu;
     public SceneChanger sceneChanger;
     public GameObject coffin;
+    public GameObject photo;
 
     public bool enterEnd = false;
     public bool exitEnd = false;
@@ -15,10 +16,12 @@ public class PlayerStats_Coffin : MonoBehaviour
 
     void Update()
     {
+        
         if (enterEnd == true)
         {
             endScene.SetActive(true);
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
+            gameObject.GetComponent<PlayerMovement>().StopMoving();
+            
 
         }
 
@@ -31,6 +34,11 @@ public class PlayerStats_Coffin : MonoBehaviour
                 sceneChanger.SceneChange();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            photo.SetActive(false);
+            gameObject.GetComponent<PlayerMovement>().enabled = true;
+        }
     }
 
 
@@ -41,6 +49,8 @@ public class PlayerStats_Coffin : MonoBehaviour
         {
             StartCoroutine(WaitEndScene() );
         }
+
+
     }
 
     public IEnumerator WaitEndScene()

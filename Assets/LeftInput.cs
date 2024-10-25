@@ -6,21 +6,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
-[System.Serializable]
-public class InputSelect : MonoBehaviour
-{
 
+public class LeftInput : MonoBehaviour
+{
+    public GameObject leftSwitch;
     public TMP_InputField myInputField;
     public string answer;
-    public string method;
-    public bool answerCorrect;
     public GameObject platformManager;
-
+    PlatformManager platformManagerScript;
 
     void Start()
     {
-
+        platformManagerScript = platformManager.GetComponent<PlatformManager>();
         myInputField.onValueChanged.AddListener(CheckAnswer);
+        
 
     }
 
@@ -29,20 +28,11 @@ public class InputSelect : MonoBehaviour
 
         if (input.Equals(answer))
         {
-            answerCorrect = true;
-
             myInputField.text = "";
-            platformManager.SendMessage(method);
+            platformManagerScript.LeftPlatform();
+            Destroy(leftSwitch);
+            Destroy(gameObject);
 
         }
-
     }
-
-
-
-    //Destroy(leftbox);
-    //platform1free = true;
-    //Debug.Log("platform 1 free");
-    //player.GetComponent<PlayerMovement>().enabled = true;
-    //questionObjLeft.SetActive(false);
 }
